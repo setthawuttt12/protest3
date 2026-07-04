@@ -3,8 +3,10 @@ const JWT_SECRET = process.env.JWT_SECRET
 
 exports.verifyToken = (req,res,next)=>{
     const authHeader = req.header("Authorization")
-    if(!authHeader || !authHeader.starstWith("Bearer")) return
-    res.status(401).json({message:'Invalid No or token'})
+    if(!authHeader || !authHeader.startsWith("Bearer")) {
+        return res.status(401).json({message:'Invalid No or token'})
+    }
+    const token = authHeader.split(" ")[1]
     try {
         req.user = jwt.verify(token,JWT_SECRET)
         next()
@@ -13,6 +15,7 @@ exports.verifyToken = (req,res,next)=>{
         res.status(403).json({message:'Invalidr token'})
     }
 }
+
 
 exports.requierRole = (role) =>(req,res,next)=>{
     req.user?.role === role

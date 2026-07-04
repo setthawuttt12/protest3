@@ -12,7 +12,7 @@
         <ClientOnly>
             <v-navigation-drawer v-model="drawer" width="260" app color="#404040" :temporary="isMobile" :permanent="!isMobile">
                 <v-list density="comfortable">
-                    <v-list-item v-for="item in navitem" :key="item.title" :to="item.go">
+                    <v-list-item v-for="item in navitem" :key="item.title" :to="item.to">
                         <v-list-item-title>
                             {{ item.title }}
                         </v-list-item-title>
@@ -45,13 +45,13 @@ const fetch = async () =>{
     if(!token){
         return await navigateTo('/',{replace:true})
     }
-    try {
+    try{
         const res = await axios.get(`${api}/profile`,{headers:{Authorization:`Bearer ${token}`}})
         user.value = res.data
-    } catch (error) {
-        console.error('error Get Profile',error)
+    }catch(err){
+        console.error('Error Get Profile!',err)
         localStorage.removeItem('token')
-        await navigateTo('/',{replace:true})
+        await navigateTo('/',{replace:true}) 
     }
 }
 
@@ -92,10 +92,10 @@ const roles =[
 const bg = (role) =>{
     if(role === 'ฝ่ายบุคลากร') return '#647687'
     if(role === 'กรรมการประเมิน') return '#007FFF'
-    if(role === 'ผู้รับการประเมิน') return '#7d0c14'
+    if(role === 'ผู้รับการประเมินผล') return '#7d0c14'
 
 }
-
+onMounted(fetch)
 </script>
 
 <style scoped>
