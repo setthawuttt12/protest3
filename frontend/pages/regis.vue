@@ -4,7 +4,7 @@
         <v-row>
             <v-col cols="12" md="6" lg="5">
                 <v-card color="#7d0c14">
-                    <!-- <center><v-img src="/img/logo2.png" width="30%"></v-img></center> -->
+                    <center><v-img src="/img/logo.png" width="30%"></v-img></center>
                     <v-card-title class="text-center"><h1>สมัครสมาชิก</h1><h2>NTC EVALUATION SYSTEM</h2></v-card-title>
                     <br>
                     <v-card-text class="bg-white">
