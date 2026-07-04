@@ -15,11 +15,11 @@ app.use(fileupload())
 app.use('/uploads',express.static(path.join(__dirname,'uploads')))
 
 //public api
-const auth = require('./auth')
+const auth = require('./routes/auth')
 app.use('/api/auth',auth)
 
 const profile = require('~/profile')
-app.use('/api/profile',auth)
+app.use('/api/profile',profile)
 
 app.use((req,res)=> res.status(404).json({message:'404 : invalid ROutes'}))
 app.listen(3001 , () => console.log("server running on port 3001"))

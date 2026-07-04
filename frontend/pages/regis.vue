@@ -1,8 +1,8 @@
 <template>
    <v-container fluid>
     <center>
-        <v-row>
-            <v-col cols="12" md="6" lg="5">
+        <v-row justify="center">
+            <v-col cols="12" md="8">
                 <v-card color="#7d0c14">
                     <center><v-img src="/img/logo.png" width="30%"></v-img></center>
                     <v-card-title class="text-center"><h1>สมัครสมาชิก</h1><h2>NTC EVALUATION SYSTEM</h2></v-card-title>
@@ -32,7 +32,7 @@
                                     <v-select label="ประเภทสมาชิก" :items="typeG" v-model="form.role" :error-messages="error.role" prepend-inner-icon="mdi-account-group"></v-select>
                                 </v-col>
                                 <v-col cols="12" md="6">
-                                    <v-file-input label="รูปภาพสมาชิก" accept=".png .jpg" hint="รองรับเฉพาะไฟล์ PNG และ JPG" persistent-hint  v-model="pic_user"></v-file-input>
+                                    <v-file-input label="รูปภาพสมาชิก" accept=".png , .jpg" hint="รองรับเฉพาะไฟล์ PNG และ JPG" persistent-hint  v-model="pic_user"></v-file-input>
                                 </v-col>
                                 <v-col cols="12" md="12">
                                     <center>
@@ -69,7 +69,7 @@ const form = ref(
     }
 )
 
-const typeG = ['ฝ่ายบุคลากร','กรรมการประเมิน','ผู้รับกาประเมินผล']
+const typeG = ['ฝ่ายบุคลากร','กรรมการประเมิน','ผู้รับการประเมินผล']
 
 const error = ref<Record<string,string>>({})
 const pic_user = ref<File | null>(null)
@@ -79,7 +79,7 @@ const show2 = ref(false)
 const showPw = ref(false)
 const showPw2 = ref(false)
 
-const emailRegex = /^[^\s]+@[^\s]+\.[^\s]{,2}$/i
+const emailRegex = /^[^\s]+@[^\s]+\.[^\s]{2,}$/i
 
 function validateForm(){
 
@@ -116,7 +116,7 @@ const saveMember = async()=>{
         navigateTo('/',{replace:true})
 
     } catch (error) {
-        console.error("Error regis")
+        console.error("Error regis",error)
     }
 
 }

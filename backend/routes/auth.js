@@ -1,5 +1,5 @@
 const express = require('express')
-const db = require('./db')
+const db = require('../db')
 const path = require('path')
 const bc = require('bcrypt')
 const uploadDir = path.join(__dirname,'./uploads/pic_user')
