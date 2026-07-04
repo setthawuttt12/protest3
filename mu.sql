@@ -31,7 +31,7 @@ CREATE TABLE `tb_eva` (
   `total_eva` double(10,2) DEFAULT NULL,
   `total_commit` double(10,2) DEFAULT NULL,
   PRIMARY KEY (`id_eva`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `tb_eva` (
 
 LOCK TABLES `tb_eva` WRITE;
 /*!40000 ALTER TABLE `tb_eva` DISABLE KEYS */;
+INSERT INTO `tb_eva` VALUES (1,1,1,2,'2025-06-25',18.00,NULL);
 /*!40000 ALTER TABLE `tb_eva` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,14 +52,13 @@ DROP TABLE IF EXISTS `tb_evadetail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tb_evadetail` (
-  `id_eva` int NOT NULL AUTO_INCREMENT,
-  `id_member` int DEFAULT NULL,
-  `id_sys` int DEFAULT NULL,
-  `status_eva` int DEFAULT NULL,
-  `date_eva` date DEFAULT NULL,
-  `total_eva` double(10,2) DEFAULT NULL,
-  `total_commit` double(10,2) DEFAULT NULL,
-  PRIMARY KEY (`id_eva`)
+  `id_eva` int DEFAULT NULL,
+  `id_indicate` int DEFAULT NULL,
+  `status_eva` varchar(1) DEFAULT NULL,
+  `detail_eva` text,
+  `score_member` int DEFAULT NULL,
+  `score_commit` int DEFAULT NULL,
+  `file_eva` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -68,6 +68,7 @@ CREATE TABLE `tb_evadetail` (
 
 LOCK TABLES `tb_evadetail` WRITE;
 /*!40000 ALTER TABLE `tb_evadetail` DISABLE KEYS */;
+INSERT INTO `tb_evadetail` VALUES (1,NULL,'1','ไม่',2,NULL,'1783154589792jkb2awm4qkq.png'),(1,NULL,'1','ไม่มี',4,NULL,'1783154589799wp3342t6nlk.png'),(1,1,'1','no',3,NULL,'178315480261038po9ztcc7h.png'),(1,2,'1','555',2,NULL,'17831548026338k0ggxrmgy.png');
 /*!40000 ALTER TABLE `tb_evadetail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,9 +85,9 @@ CREATE TABLE `tb_indicate` (
   `name_indicate` varchar(100) DEFAULT NULL,
   `detail_indicate` text,
   `point_indicate` int DEFAULT NULL,
-  `check_indicate` varchar(5) DEFAULT NULL,
+  `check_indicate` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id_indicate`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,6 +96,7 @@ CREATE TABLE `tb_indicate` (
 
 LOCK TABLES `tb_indicate` WRITE;
 /*!40000 ALTER TABLE `tb_indicate` DISABLE KEYS */;
+INSERT INTO `tb_indicate` VALUES (1,1,'ตัวชี้วัดกระดูก','กระดูกหักมั้ย',4,'y'),(2,2,'ตัวชี้วัดตี๋','ตี๋หักมั้ย',3,'n');
 /*!40000 ALTER TABLE `tb_indicate` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,7 +144,7 @@ CREATE TABLE `tb_system` (
   `year_sys` varchar(4) DEFAULT NULL,
   `status_sys` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`id_sys`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,6 +153,7 @@ CREATE TABLE `tb_system` (
 
 LOCK TABLES `tb_system` WRITE;
 /*!40000 ALTER TABLE `tb_system` DISABLE KEYS */;
+INSERT INTO `tb_system` VALUES (1,'2025-06-25','2030-06-05','1','1','y');
 /*!40000 ALTER TABLE `tb_system` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,7 +168,7 @@ CREATE TABLE `tb_topic` (
   `id_topic` int NOT NULL AUTO_INCREMENT,
   `name_topic` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_topic`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,6 +177,7 @@ CREATE TABLE `tb_topic` (
 
 LOCK TABLES `tb_topic` WRITE;
 /*!40000 ALTER TABLE `tb_topic` DISABLE KEYS */;
+INSERT INTO `tb_topic` VALUES (1,'กระดูก'),(2,'ตี๋');
 /*!40000 ALTER TABLE `tb_topic` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,4 +194,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-04 13:58:18
+-- Dump completed on 2026-07-04 15:50:09
