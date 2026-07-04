@@ -20,6 +20,13 @@
                 </v-list>
             </v-navigation-drawer>
         </ClientOnly>
+
+        <v-main>
+            <v-container fluid class="py-2">
+              <slot />  
+            </v-container>
+            <v-footer class="text-caption justify-center">© 2026 NTC EVALUATION SYSTEM</v-footer>
+        </v-main>
     </v-app>
 </template>
 

@@ -1,12 +1,11 @@
 <template>
-   <v-container fluid>
-    <center>
-        <v-row justify="center">
+   <v-container >
+        <v-row >
             <v-col cols="12" md="8">
-                <v-card color="#7d0c14">
-                    <v-shett class="pa-4 text-center" color="#404040">
+                <v-card >
+                    <v-sheet class="pa-4 text-center" color="#404040">
                         <h1 class="text-h5 font-weight-bold">แก้ไขข้อมูลส่วนตัว</h1>
-                    </v-shett>
+                    </v-sheet>
                     <v-card-text class="bg-white"> 
                         <v-form @submit.prevent="saveMember">
                             <v-row>
@@ -43,13 +42,13 @@
                 </v-card>
             </v-col>
         </v-row>
-    </center>
    </v-container>
 </template>
 
 <script setup lang="ts">
 import axios from 'axios'
 import {eva} from '~/API/base'
+
 // definePageMeta({
 //     layout:false
 // })
@@ -67,7 +66,7 @@ const form = ref(
 
 
 const error = ref<Record<string,string>>({})
-const pic_user = ref<File | null>(null)
+
 const conP = ref('')
 const show = ref(false)
 const show2 = ref(false)
