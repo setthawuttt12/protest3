@@ -11,6 +11,7 @@ app.use(cors({
 }))
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.use(fileupload())
 app.use('/uploads',express.static(path.join(__dirname,'uploads')))
 
@@ -26,10 +27,10 @@ app.use('/api/profile',profile)
 const edit_eva = require('./routes/Eva/edit_eva')
 app.use('/api/Eva/edit_eva',edit_eva)
 
-<<<<<<< HEAD
+
 const selfeva = require('./routes/Eva/selfeva')
 app.use('/api/Eva/selfeva',selfeva)
-=======
+
 
 //commit api
 const score_member2 = require('./routes/Commit/score_member')
@@ -42,7 +43,6 @@ const save_score = require('./routes/Commit/save_score')
 app.use('/api/Commit/save_score',save_score)
 
 
->>>>>>> 338a0c68346c43a88b172fee9bd8d063e4ebaf72
 
 app.use((req,res)=> res.status(404).json({message:'404 : invalid ROutes'}))
 app.listen(3001 , () => console.log("server running on port 3001"))
