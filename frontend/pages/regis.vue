@@ -32,7 +32,7 @@
                                     <v-select label="ประเภทสมาชิก" :items="typeG" v-model="form.role" :error-messages="error.role" prepend-inner-icon="mdi-account-group"></v-select>
                                 </v-col>
                                 <v-col cols="12" md="6">
-                                    <v-file-input label="รูปภาพสมาชิก" accept=".png .jpg" hint="รองรับเฉพาะไฟล์ PNG และ JPG" persistent-hint  v-model="pic_user"></v-file-input>
+                                    <v-file-input label="รูปภาพสมาชิก" accept=".png , .jpg" hint="รองรับเฉพาะไฟล์ PNG และ JPG" persistent-hint  v-model="pic_user"></v-file-input>
                                 </v-col>
                                 <v-col cols="12" md="12">
                                     <center>
@@ -79,7 +79,7 @@ const show2 = ref(false)
 const showPw = ref(false)
 const showPw2 = ref(false)
 
-const emailRegex = /^[^\s]+@[^\s]+\.[^\s]{,2}$/i
+const emailRegex = /^[^\s]+@[^\s]+\.[^\s]{2,}$/i
 
 function validateForm(){
 
@@ -116,7 +116,7 @@ const saveMember = async()=>{
         navigateTo('/',{replace:true})
 
     } catch (error) {
-        console.error("Error regis")
+        console.error("Error regis",error)
     }
 
 }
