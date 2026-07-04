@@ -26,5 +26,8 @@ app.use('/api/profile',profile)
 const edit_eva = require('./routes/Eva/edit_eva')
 app.use('/api/Eva/edit_eva',edit_eva)
 
+const selfeva = require('./routes/Eva/selfeva')
+app.use('/api/Eva/selfeva',selfeva)
+
 app.use((req,res)=> res.status(404).json({message:'404 : invalid ROutes'}))
 app.listen(3001 , () => console.log("server running on port 3001"))
