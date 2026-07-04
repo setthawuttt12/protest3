@@ -18,7 +18,7 @@
                                         <v-text-field label="รหัสผ่าน" v-model="password" :prepend-inner-icon="show ? 'mdi-eye':'mdi-eye-off'" :type="showPw ? 'text':'password'" @click:prepend-inner="show = !show , showPw = !showPw"></v-text-field>
                                     </v-col>
                                     <v-col cols="12" md="12">
-                                        <v-select label="ประเภทสมาชิก" :items="['ฝ่ายบุคลากร','กรรมการประเมิน','ผู้รับกาประเมินผล']" v-model="role" prepend-inner-icon="mdi-account-group"></v-select>
+                                        <v-select label="ประเภทสมาชิก" :items="['ฝ่ายบุคลากร','กรรมการประเมิน','ผู้รับการประเมินผล']" v-model="role" prepend-inner-icon="mdi-account-group"></v-select>
                                     </v-col>
                                     <v-col cols="12" md="12">
                                         <center>

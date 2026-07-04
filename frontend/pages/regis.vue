@@ -1,8 +1,8 @@
 <template>
    <v-container fluid>
     <center>
-        <v-row>
-            <v-col cols="12" md="6" lg="5">
+        <v-row justify="center">
+            <v-col cols="12" md="8">
                 <v-card color="#7d0c14">
                     <center><v-img src="/img/logo2.png" width="30%"></v-img></center>
                     <v-card-title class="text-center"><h1>สมัครสมาชิก</h1><h2>NTC EVALUATION SYSTEM</h2></v-card-title>
@@ -69,7 +69,7 @@ const form = ref(
     }
 )
 
-const typeG = ['ฝ่ายบุคลากร','กรรมการประเมิน','ผู้รับกาประเมินผล']
+const typeG = ['ฝ่ายบุคลากร','กรรมการประเมิน','ผู้รับการประเมินผล']
 
 const error = ref<Record<string,string>>({})
 const pic_user = ref<File | null>(null)
