@@ -26,5 +26,11 @@ app.use('/api/profile',profile)
 const edit_eva = require('./routes/Eva/edit_eva')
 app.use('/api/Eva/edit_eva',edit_eva)
 
+
+//commit api
+const score_member2 = require('./routes/Commit/score_member')
+app.use('/api/Commit/score_member',score_member2)
+
+
 app.use((req,res)=> res.status(404).json({message:'404 : invalid ROutes'}))
 app.listen(3001 , () => console.log("server running on port 3001"))
