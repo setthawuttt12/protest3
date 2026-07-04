@@ -103,7 +103,7 @@ const saveMember = async()=>{
     
     try {
         
-        await axios.post(`${eva}/edit_eva`,form.value,{headers:{Authorization:`Bearer ${token}`}})
+        await axios.put(`${eva}/edit_eva`,form.value,{headers:{Authorization:`Bearer ${token}`}})
         alert('แก้ไขสำเร็จ')
         localStorage.removeItem('token')
         navigateTo('/',{replace:true})
