@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const JWT_SECRET = process.env.JWT_SECRET
 
-export.verifyToken = (req,res,next)=>{
+exports.verifyToken = (req,res,next)=>{
     const authHeader = req.header("Authotization")
     if(!authHeader || !authHeader.starsWith("Bearer")) return
     res.status(401).json({message:'Invalid No or token'})
@@ -14,7 +14,7 @@ export.verifyToken = (req,res,next)=>{
     }
 }
 
-export.requierRole = (role) =>(req,res,next)=>{
+exports.requierRole = (role) =>(req,res,next)=>{
     req.user?.role === role
     ? next()
     : res.status(403).json({message:'Invalidr token'})
