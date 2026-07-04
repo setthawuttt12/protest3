@@ -10,6 +10,8 @@ router.get('/',verifyToken,async (req,res) => {
     } catch (error) {
         console.error('Error Get profile',error)
         res.status(500).json({message:'Error Get Profile'})
+}   
 })
 
-module.export = router
+
+module.exports = router

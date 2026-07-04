@@ -18,7 +18,7 @@ app.use('/uploads',express.static(path.join(__dirname,'uploads')))
 const auth = require('./routes/auth')
 app.use('/api/auth',auth)
 
-const profile = require('~/profile')
+const profile = require('./routes/profile')
 app.use('/api/profile',profile)
 
 app.use((req,res)=> res.status(404).json({message:'404 : invalid ROutes'}))
