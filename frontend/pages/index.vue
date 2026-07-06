@@ -72,6 +72,7 @@ const Login = async()=>{
         alert('สมัครสำเร็จ')
 
     } catch (err:any) {
+        console.error('Error',err)
         error.value = error.response?.data?.message || 'เข้าสู่ระบบไม่สำเร็จ'
     }
 
